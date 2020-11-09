@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:weatherflutter/ui/cities/cities_page.dart';
 
 class HomePage extends StatelessWidget {
+  void handleNavigatePress(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => CitiesPage()),
+    );
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
         body: Stack(
@@ -33,10 +40,21 @@ class HomePage extends StatelessWidget {
                       style:
                           TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Text('Que te parece si agregamos, \n una nueva Ciudad',
-                      textAlign: TextAlign.start)
+                      textAlign: TextAlign.start),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  RaisedButton(
+                    color: Colors.white,
+                    elevation: 0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    child: Text('Agregar ciudad'),
+                    onPressed: () => handleNavigatePress(context),
+                  )
                 ]),
           ),
         ))
