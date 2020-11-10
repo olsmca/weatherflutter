@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:weatherflutter/ui/cities/cities_page.dart';
+import 'ui_constants.dart';
 
 class HomePage extends StatelessWidget {
   void handleNavigatePress(BuildContext context) {
@@ -21,7 +22,7 @@ class HomePage extends StatelessWidget {
         SafeArea(
             child: Center(
           child: Container(
-            constraints: BoxConstraints(maxWidth: 250),
+            constraints: BoxConstraints(maxWidth: maxPageWidth),
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
