@@ -6,6 +6,7 @@ import 'package:weatherflutter/model/city.dart';
 import 'package:weatherflutter/ui/common/debouncer.dart';
 import 'package:weatherflutter/ui/common/header_widget.dart';
 import 'package:http/http.dart' as http;
+import 'package:weatherflutter/ui/common/loader_widget.dart';
 import 'package:weatherflutter/ui/ui_constants.dart';
 
 class AddCityPage extends StatefulWidget {
@@ -16,6 +17,7 @@ class AddCityPage extends StatefulWidget {
 class _AddCityPageState extends State<AddCityPage> {
   final debouncer = Debouncer();
   List<City> cities = [];
+  bool loading = false;
 
   void onChangedText(String text) {
     debouncer.run(() {
@@ -24,12 +26,17 @@ class _AddCityPageState extends State<AddCityPage> {
   }
 
   void requestSearch(String text) async {
+    setState(() {
+      loading = true;
+    });
+
     final url = "${api}search/?query=$text";
     final response = await http.get(url);
     final data = jsonDecode(response.body) as List;
 
     print(data);
     setState(() {
+      loading = false;
       cities = data.map((e) => City.fromJson(e)).toList();
     });
     print(cities);
@@ -86,9 +93,11 @@ class _AddCityPageState extends State<AddCityPage> {
                 },
               ),
             ),
-            Center(
-              child: CircularProgressIndicator(),
-            )
+            if (loading)
+              Center(
+                //child: CircularProgressIndicator(),
+                child: LoaderWidget(),
+              )
           ],
         ),
       ),
