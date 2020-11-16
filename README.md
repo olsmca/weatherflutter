@@ -1,16 +1,11 @@
 # weatherflutter
 
-A new Flutter project.
+Application developed in flutter, it consumes a service that allows you to search for a city and check the weather status [EndPoint metaweather ](https://www.metaweather.com/api/location/)
 
 ## Getting Started
+```
+git clone https://github.com/olsmca/weatherflutter.git
+```
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This project is an example developed in the Flutter live course with Diego Velazquez (Google Developer Expert on Flutter).
+[Curso de Flutter en Vivo: Leonidas Esteban](https://youtu.be/gBfXjjhsl-o)  
